@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
+using Radzen;
 
 namespace MauiTests
 {
@@ -14,6 +15,7 @@ namespace MauiTests
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                 });
 
+            builder.Services.AddRadzenComponents();
             builder.Services.AddMauiBlazorWebView();
 
 #if DEBUG

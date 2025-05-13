@@ -1,17 +1,88 @@
 ﻿@inherits LayoutComponentBase
+@inject NavigationManager Navigation
 
-<div class="page">
-    <div class="sidebar">
-        <NavMenu />
-    </div>
+<RadzenComponents />
 
-    <main>
-        <div class="top-row px-4">
-            <a href="https://learn.microsoft.com/aspnet/core/" target="_blank">About</a>
-        </div>
 
-        <article class="content px-4">
-            @Body
-        </article>
-    </main>
-</div>
+
+<RadzenLayout>
+	<RadzenHeader>
+		<RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center" JustifyContent="JustifyContent.SpaceBetween" Style="width: 100vw;">
+			<RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center" Gap="0.5rem">
+				
+				<RadzenImage Path="images/logo.svg" Style="height: 50px; margin-left: 10px;" />
+			</RadzenStack>
+
+		</RadzenStack>
+	</RadzenHeader>
+
+	<RadzenDialog />
+	<RadzenNotification />
+	<RadzenTooltip />
+	<RadzenContextMenu />
+
+	<RadzenBody>
+		
+<RadzenRow Class="main_bg p-4" Justify="Justify.Center" Align="Alignment.Center" Gap="1rem">
+	<RadzenColumn xs="12" sm="6" md="3">
+		<RadzenButton ButtonStyle="ButtonStyle.Primary" Size="ButtonSize.Large" Style="width:100%">
+			Imprimir Zebra ZQ220Plus
+		</RadzenButton>
+	</RadzenColumn>
+	<RadzenColumn xs="12" sm="6" md="3">
+		<RadzenButton ButtonStyle="ButtonStyle.Primary" Size="ButtonSize.Large" Style="width:100%">
+			Teste 2
+		</RadzenButton>
+	</RadzenColumn>
+	<RadzenColumn xs="12" sm="6" md="3">
+		<RadzenButton ButtonStyle="ButtonStyle.Primary" Size="ButtonSize.Large" Style="width:100%">
+			Teste 3
+		</RadzenButton>
+	</RadzenColumn>
+	<RadzenColumn xs="12" sm="6" md="3">
+		<RadzenButton ButtonStyle="ButtonStyle.Primary" Size="ButtonSize.Large" Style="width:100%">
+			Teste 4
+		</RadzenButton>
+	</RadzenColumn>
+</RadzenRow>
+
+
+	</RadzenBody>
+</RadzenLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@code {
+	bool sidebarExpanded = false;
+	private Timer? _timer;
+	private string date = "";
+	private bool isLoggedIn = false;
+	private bool haveConfigs = false;
+	private bool showLoadConfig = true;
+
+	//private readonly FileManager _fileManager = new FileManager();
+
+	protected override void OnInitialized()
+	{
+		//_timer = new Timer(_ => OnTimerTick(), null, TimeSpan.Zero, TimeSpan.FromSeconds(1));
+
+		//InitialCache();
+	}
+
+
+	async Task CloseApp()
+	{
+		System.Diagnostics.Process.GetCurrentProcess().Kill();
+	}
+}
